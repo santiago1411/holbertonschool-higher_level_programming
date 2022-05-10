@@ -3,6 +3,6 @@ def best_score(a_dictionary):
     if a_dictionary is None:
         return None
     new_d = a_dictionary.copy()
-    elif a_dictionary:
+    else a_dictionary:
         new_d = max(a_dictionary, key=a_dictionary.get)
     return new_d
