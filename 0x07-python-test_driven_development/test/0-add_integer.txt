@@ -1,0 +1,60 @@
+""" Test the function add_integer """
+
+""" import function """
+>>> add_integer = __import__('0-add_integer').add_integer
+
+>>> add_integer(5, 5)
+10
+
+>>> add_integer(1)
+99
+
+>>> add_integer(2)
+100
+
+>>> add_integer(12.3, 6)
+18
+
+>>> add_integer('santiago', 'osorno')
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(None)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer('a', 10)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(10, 'b')
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+>>> add_integer(8, {4,5,9})
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+>>> add_integer({4,5,9}, 8)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(6, float("inf"))
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(7, float("nan"))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
