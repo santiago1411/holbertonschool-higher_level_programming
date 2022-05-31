@@ -1,43 +1,30 @@
-Using ``say_my_name``
------------------------
+"""Test the function add_integer"""
 
-Checks if first_name or last_name is a str
-Prints "My name is <first name> <last name>"
+"""import function"""
+>>> say_my_name = __import__('3-say_my_name').say_my_name
 
-First import ``say_my_name``
+>>> say_my_name(2, "Osorno")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
 
-    >>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> say_my_name("Santiago", 2)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
 
-Now use it:
+>>> say_my_name()
+Traceback (most recent call last):
+...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
 
-Basic usage:
-    >>> say_my_name("santiago", "osorno")
-    My name is santiago osorno
+>>> say_my_name(2, 2)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
 
-First name only input:
-    >>> say_my_name("Bob")
-    My name is Bob
+>>> say_my_name("Santiago", "Osorno")
+My name is Santiago Osorno
 
-Non string input:
-    >>> say_my_name(3, 3)
-    Traceback (most recent call last):
-    ...
-    TypeError: first_name must be a string
-
-Non string input without last_name:
-    >>> say_my_name(3)
-    Traceback (most recent call last):
-    ...
-    TypeError: first_name must be a string
-
-No inputs:
-    >>> say_my_name()
-    Traceback (most recent call last):
-    ...
-    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
-
-Last name wrong input:
-    >>> say_my_name("Bob", 3)
-    Traceback (most recent call last):
-    ...
-    TypeError: last_name must be a string
+>>> say_my_name("Santiago")
+My name is Santiago 
