@@ -1,32 +1,48 @@
 #!/usr/bin/python3
-"""Unittest for max_integer([..])
+"""Interactive tests
 """
+
 import unittest
+
 max_integer = __import__('6-max_integer').max_integer
 
-class TestMaxInteger(unittest.TestCase):
-    """ tests for max_integer
+
+class InteractiveTestsMaxInteger(unittest.TestCase):
     """
-
-    def test_max_int_basic(self):
-        """ tests normal list of ints
+    This class is a interactive test for the function
+    max_integer(list=[])
+    """
+    def text_good_results(self):
         """
-        self.assertEqual(max_integer([1, 2, 3, 4]), 4)
-
-    def test_max_int_empty(self):
-        """ tests if list is empty
+        Test for compare results
         """
-        self.assertEqual(max_integer([]), None)
+        self.assertAlmostEquals(max_integer([10, 20, 30, 50]), 50)
+        self.assertAlmostEquals(max_integer([50, 30, 10, 20]), 50)
+        self.assertAlmostEquals(max_integer([30, 2, 34, 5]), 34)
+        self.assertAlmostEquals(max_integer([-1, -2, -3, -5]), -1)
+        self.assertAlmostEquals(max_integer([1.2, 2.2, 3.3, 5.5]), 5.5)
+        self.assertAlmostEquals(max_integer([50]), 50)
 
-    def test_max_int_neg(self):
-        """ tests if list has a negative int
+    def text_empty(self):
         """
-        self.assertEqual(max_integer([-1, -2, -3, -4]), -1)
+        Test for compares result when the list is empty
+        """
+        self.assertAlmostEquals(max_integer([]), None)
 
-    def test_max_int_one(self):
-        """ tests if list has only one item
+    def test_errors(self):
         """
-        self.assertEqual(max_integer([1]), 1)
+        Test for
+        """
+        lista = [4, 4.5, "Hello", 10]
+        with self.assertRaises(TypeError):
+            max_integer(lista)
+
+    def test_None(self):
+        """
+        Test for compare result with None like argument
+        """
+        with self.assertRaises(TypeError):
+            max_integer(None)
 
 
 if __name__ == '__main__':
