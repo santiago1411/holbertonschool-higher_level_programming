@@ -1,60 +1,50 @@
-Using ``add_integer``
------------------------
+"""Test the function add_integer"""
 
-Parameter "b" is defaulted to int "98"
-Makes sure the parameters are type int
-Returns the sum of the parameters
+"""import function"""
+>>> add_integer = __import__('0-add_integer').add_integer
 
-First import ``add_integer``
+>>> add_integer(2, 3)
+5
 
-    >>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(2.4, 3.645321432)
+6
 
-Now use it:
+>>> add_integer('s', 3)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
-Basic usage:
-    >>> add_integer(1, 2)
-    3
+>>> add_integer(3, 's')
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
 
-Negative input:
-    >>> add_integer(100, -2)
-    98
+>>> add_integer({3, 4, 5}, )
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
-One input:
-    >>> add_integer(2)
-    100
+>>> add_integer(2, {3, 4, 5})
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
 
-Float and negative input:
-    >>> add_integer(100.3, -2)
-    98
+>>> add_integer(None, {3, 4, 5})
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
-Float overflow:
-    >>> add_integer(1500.5)
-    1598
+>>> add_integer(None, None)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
-Float NaN:
-    >>> add_integer(float('NaN'))
-    Traceback (most recent call last):
-    ...
-    ValueError: cannot convert float NaN to integer
+>>> add_integer(2, None)
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
 
-String input:
-    >>> add_integer(4, "School")
-    Traceback (most recent call last):
-    ...
-    TypeError: b must be an integer
-
-None input:
-    >>> add_integer(None)
-    Traceback (most recent call last):
-    ...
-    TypeError: a must be an integer
-
-Double negative float input:
-    >>> add_integer(-100.5, -10.8)
-    -110
-
-Double string input:
-    >>> add_integer("holberton", "school")
-    Traceback (most recent call last):
-    ...
-    TypeError: a must be an integer
+>>> add_integer()
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
