@@ -68,7 +68,7 @@ class Base:
         """
 
         res = []
-        with open(cls.__name__ + ".json", mode="r") as read_file:
+        with open(cls.__name__ + ".json", mode="w") as read_file:
             file2 = read_file.read()
         # Converting str to list
         text = cls.from_json_string(file2)
