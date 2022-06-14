@@ -50,4 +50,5 @@ class Square(Rectangle):
                 self.y = args[3]
 
     def to_dictionary(self):
+        """return format of a dictionary"""
         return {'id': self.id, 'x': self.x, 'size': self.size, 'y': self.y}
