@@ -66,13 +66,11 @@ class Base:
     def load_from_file(cls):
         """""Class method that returns a list of instances"""
 
-        listv = []
         with open(cls.__name__ + ".json", "r", encoding='utf-8') as f:
             listv = cls.from_json_string(f.read())
 
         listv2 = []
         for i in listv:
-
             if type(i) is dict:
                 listv2.append(cls.create(**i))
             else:
