@@ -64,18 +64,15 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """Returns a list of instances
-        """
+        """""Class method that returns a list of instances"""
 
-        res = []
-        with open(cls.__name__ + ".json", mode="w") as read_file:
-            file2 = read_file.read()
-        # Converting str to list
-        text = cls.from_json_string(file2)
-        for item in text:
-            # Formatting dicts into str format
-            if type(item) == dict:
-                res.append(cls.create(**item))
+        with open(cls.__name__ + ".json", "r") as f:
+            listv = cls.from_json_string(f.read())
+
+        listv2 = []
+        for i in listv:
+            if type(i) == dict:
+                listv2.append(cls.create(**i))
             else:
-                res.append(item)
-        return res
+                listv2.append(i)
+        return listv2
