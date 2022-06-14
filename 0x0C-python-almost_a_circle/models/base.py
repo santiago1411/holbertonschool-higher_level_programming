@@ -71,7 +71,7 @@ class Base:
 
         listv2 = []
         for i in listv:
-            if type(i) is dict:
+            if type(i) == dict:
                 listv2.append(cls.create(**i))
             else:
                 listv2.append(i)
