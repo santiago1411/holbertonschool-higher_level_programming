@@ -1,29 +1,27 @@
-def test_base_tojsonstringnone(self):
-    ret = "[]"
-    test_list = self.base_1.to_json_string(None)
-    self.assertEqual(ret, test_list)
+#!/usr/bin/python3
+import unittest
+from models import base
 
-def test_base_tojsonstringempty(self):
-    ret = "[]"
-    test_list = self.base_1.to_json_string([])
-    self.assertEqual(ret, test_list)
 
-def test_base_tojsonstringdict(self):
-    test_dict = [{'id': 7}]
-    ret = "[{"id": 7}]"
-    self.assertEqual(self.base_1.to_json_string(test_dict), ret)
+class BaseTest(unittest.TestCase):
 
-def test_base_fromjsonstringnone(self):
-    ret = []
-    test_list = self.base_1.from_json_string(None)
-    self.assertEqual(ret, test_list)
+    def test_doc(self):
+        self.assertTrue(len(base.__doc__) > 1)
+        self.assertTrue(len(base.Base.__doc__) > 1)
+        self.assertTrue(len(base.Base.__init__.__doc__) > 1)
+        self.assertTrue(len(base.Base.to_json_string.__doc__) > 1)
+        self.assertTrue(len(base.Base.save_to_file.__doc__) > 1)
+        self.assertTrue(len(base.Base.from_json_string.__doc__) > 1)
+        self.assertTrue(len(base.Base.create.__doc__) > 1)
+        self.assertTrue(len(base.Base.load_from_file.__doc__) > 1)
 
-def test_base_fromjsonstringempty(self):
-    ret = []
-    test_list = self.base_1.from_json_string([])
-    self.assertEqual(ret, test_list)
+    def test_Base(self):
+        b1 = base.Base()
+        b2 = base.Base(98)
+        self.assertNotEqual(b1, b2)
+        self.assertEqual(b1.id, 1)
+        self.assertEqual(b2.id, 98)
 
-def test_base_fromjsonstringdict(self):
-    ret = [{'id': 7}]
-    test_dict = "[{"id": 7}]"
-    self.assertEqual(self.base_1.from_json_string(test_dict), ret)
+
+if __name__ == "__main__":
+    unittest.main()
