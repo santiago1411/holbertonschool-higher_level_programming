@@ -1,13 +1,13 @@
 #!/usr/bin/node
-const args = process.argv[2];
-const axios = require('axios').default;
+const args = process.argv;
 const fs = require('fs');
+const axios = require('axios').default;
 
-axios.get(args)
+axios.get(args[2])
   .then(function (response) {
-    fs.writeFile(args[3], response.data, err => {
+    fs.writeFile(args[3], response.data, (err) => {
       if (err) {
-        console.log(err);
+        console.error(err);
       }
     });
   });
