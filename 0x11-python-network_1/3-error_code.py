@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """
+Python script non-importable
 """
 
 
@@ -9,6 +10,8 @@ from sys import argv
 
 if __name__ == "__main__":
     """
+    script that takes in a URL, sends a request to
+    the URL and displays the body of the response.
     """
     try:
         with urllib.request.urlopen(argv[1]) as response:
